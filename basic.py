@@ -204,9 +204,6 @@ class Parser:
     def parse(self):
         result = self.expr()
         if not result.error and self.current_token.type != TT_EOF:
-            print("it will error")
-            print("pos start", self.current_token.pos_start. idx)
-            print("pos end", self.current_token.pos_end.idx)
             return result.failure(InvalidSyntaxError(self.current_token.pos_start, self.current_token.pos_end,
                 "Expected '+', '-', '*' or '/'"))
         return result
